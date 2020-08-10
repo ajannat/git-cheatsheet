@@ -6,9 +6,55 @@ Besides, there are branch system on git by which we can easily add a new feature
 
 Enough talking!!! Now let's get familiar with some useful git commands-
 
-Configuring git-
-
+__Configuring git -__ \
+If we want to configure git globally on our desktop, we simply need to run the following commands using command line.
 ```
-git config --global user.name "Your Name"
-git config --global user.email "yourEmail@email.com"
+git config --global user.name <Your Name>
+git config --global user.email <yourEmail@email.com>
+```
+__Initializing git -__ \
+To setup a git repository or initialize git inside a folder, we have to run the following command which will initialize an empty git repository inside that folder.
+```
+git init
+```
+__Clonning a git repository -__ \
+We can clone any git repositoy using SSH key or HTTPS web url. To use SSH key we have to set it up first. We can clone with HTTPS by running the following command.
+```
+git clone <web-url>
+ex: git clone https://github.com/ajannat/git-cheatsheet.git
+```
+__Check status -__\
+After initializing git or clonning a git repo if we do any changes to any files we can check the current status of the repository by the following command.
+```
+git status
+```
+__Adding / Staging files -__\
+Once we run the 'git status' command we can see the untracked(new /  modified / deleted) files. We can add the files to the staging area by running the following commands.
+```
+git add <filename> --stage one particular file
+ex: git add README.md
+git add . --stage all new and modified files
+```
+There are a few more add commands having different functionalities like-
+```
+git add -u stage modified and deleted files
+git add -A -- stage all(new, modified, deleted) files
+git add --all --stage all(new, modified, deleted) files
+```
+__Unstaging files -__\
+We can also unstage the files from the staging area before committing by running the following commands.
+```
+git reset <filename> --unstage one particular file
+ex: git reset README.md
+git reset --unstage all files
+```
+__Committing on git -__\
+Committing is the final decision that we want to keep the changes to our git repo. We need to add a commit message with each commit so that later on we can easily understand the reason behind that particular commit. To commit we have to run the following command.
+```
+git commit -m "our message"
+```
+__Deleting the last commit -__\
+We can revert our last commit before pushing out code to the repo by using the following command.
+```
+git reset HEAD~
 ```
