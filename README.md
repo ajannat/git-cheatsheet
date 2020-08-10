@@ -35,7 +35,7 @@ git add <filename> --stage one particular file
 ex: git add README.md
 git add . --stage all new and modified files
 ```
-There are a few more add commands having different functionalities like-
+There are a few more add commands having different functionalities like -
 ```
 git add -u stage modified and deleted files
 git add -A -- stage all(new, modified, deleted) files
@@ -57,4 +57,48 @@ __Deleting the last commit -__\
 We can revert our last commit before pushing out code to the repo by using the following command.
 ```
 git reset HEAD~
+```
+__Git branch -__\
+We can push our code to the master branch or we can create a new branch, do the changes there and then push to the created branch. We can use the following commands for git branching.
+```
+git branch --see the current branch
+git checkout -b <branchName> --create a new branch
+ex: git checkout -b newBranch
+git checkout <branchName> --checkout to a particular branch
+ex: git checkout newBranch
+git branch -D <branchName> --delete a particular branch
+ex: git branch -D newBranch
+```
+__Push code to repository -__
+After committing the code successfully we need to push the code to our git repository by the following command.
+```
+git push origin <branchName>
+ex: git push origin newBranch
+```
+__Pull changes from current branch -__\
+Before we push we sometimes we need to pull changes from our git repository. For example, if two persons are working on the same branch and one person pushed his changes to that branch then the other person needs to pull the changes before he pushes any new changes otherwise it creates conflict while pushing. Pulling can be done by the following command.
+```
+git pull origin <branchName>
+ex: git pull origin newBranch
+```
+__Check commit log -__\
+We can easily check out commit logs using the following commands.
+```
+git log
+git log --oneline --see the log in better version
+```
+We will get id with each log and we can go back to a previous version using those ids. For example, if the id of a particular log is 12345 we can run the following command to go the that version.
+```
+git checkout 12345
+```
+__Git merge -__\
+Suppose we created a new branch named newBranch. We did some changes to the newBeanch and pushed the changes. Now if we want to merge the newBranch with our master branch we have to run the following commands.
+```
+git checkout master
+git merge newBranch
+```
+__See differences between two commit -__\
+If we want to see the differences between two commit we can do that by using the commit ids and running the following command.
+```
+git diff id1 id2
 ```
